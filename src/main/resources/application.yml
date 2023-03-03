@@ -1,8 +1,28 @@
+#spring:
+#  datasource:
+#    password:
+#    url: jdbc:mysql://localhost:3306/examen_spring_devops?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+#    username: root
+#  application:
+#    name: examen-spring-devops
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#server:
+#  servlet:
+#    encoding:
+#      charset: utf-8
+
 spring:
+  profiles: mysql
+
   datasource:
     password:
     url: jdbc:mysql://localhost:3306/examen_spring_devops?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
+
   application:
     name: examen-spring-devops
 
@@ -10,7 +30,17 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-server:
-  servlet:
-    encoding:
-      charset: utf-8
+
+---
+spring:
+  profiles: h2
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
