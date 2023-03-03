@@ -27,6 +27,9 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+    properties:
+      dialect: org.hibernate.dialect.MySQL8Dialect
+
 
 # Profile h2 (pour le build CICD)
 ---
@@ -40,3 +43,5 @@ spring:
     hibernate:
       ddl-auto: create-drop
     show-sql: true
+    properties:
+      dialect: org.hibernate.dialect.H2Dialect
