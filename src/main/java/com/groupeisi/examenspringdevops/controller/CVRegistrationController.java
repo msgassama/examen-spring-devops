@@ -2,6 +2,7 @@ package com.groupeisi.examenspringdevops.controller;
 
 import com.groupeisi.examenspringdevops.entity.CVEntity;
 import com.groupeisi.examenspringdevops.service.CVService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +27,9 @@ public class CVRegistrationController {
     }
     @GetMapping
     public String showRegistrationForm(ModelMap modelMap) {
+//        if (cvService.isLoggedIn()) {
+//            return "redirect:/";
+//        }
         CVEntity cv = new CVEntity();
         modelMap.addAttribute("cv",cv);
         return "register";
